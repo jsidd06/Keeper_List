@@ -1,8 +1,14 @@
 import React from 'react'
+import { CardHeader, Container } from 'reactstrap'
 
 function Header() {
-  return (
-    <div>Header</div>
+  return (<Container>
+      <CardHeader>
+        <h1>
+            ToDo is Here!
+        </h1>
+      </CardHeader>
+  </Container>
   )
 }
 
