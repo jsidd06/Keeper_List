@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Card, Container, Form, Input } from 'reactstrap'
+import { Button, Card, Container, Form, Input } from 'reactstrap'
 import Header from '../Header/Header'
 
-function Home() {
+function Home(props) {
 
     const [note,setNote] = useState({
         title: '',
@@ -20,14 +20,37 @@ function Home() {
         })
     }
 
+    const submitNote = (e) => {
+        e.preventDefault();
+      props.onAdd(note)
+      setNote({
+          title: '',
+          content: ''
+      })
+    }
+
   return (
     <>
       <Header />
       <Container>
         <Card>
           <Form>
-            <Input placeholder="type the title .." value={note.title}  name="title" onChange={handleChange} />
-            <textarea placeholder="type the detail of notes" rows={3} name="textarea" value={note.content} onChange={handleChange} />
+            <Input
+              placeholder="type the title .."
+              value={note.title}
+              name="title"
+              onChange={handleChange}
+            />
+            <textarea
+              placeholder="type the detail of notes"
+              rows={3}
+              name="textarea"
+              value={note.content}
+              onChange={handleChange}
+            />
+            <Button onClick={submitNote}>
+              <i className="fa-solid fa-plus"></i>
+            </Button>
           </Form>
         </Card>
       </Container>

@@ -1,15 +1,22 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React, { useState } from 'react'
+import Header from './Components/Header/Header'
 import Home from './Components/Home/Home'
 
 function App() {
+  const [addNote, setAddNode] = useState([])
+
+  // const addNoteHandler = (note) => {
+  //   setAddNode(prevNote => {
+  //     return [...prevNote, note]
+  //   })
+  // }
+
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
-    </BrowserRouter>
-  )
+    <>
+      <Header />
+      <Home onAdd={addNote} />
+    </>
+  );
 }
 
 export default App
