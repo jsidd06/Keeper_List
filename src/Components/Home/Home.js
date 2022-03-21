@@ -44,7 +44,7 @@ function Home(props) {
             <textarea
               placeholder="type the detail of notes"
               rows={3}
-              name="textarea"
+              name="content"
               value={note.content}
               onChange={handleChange}
             />
