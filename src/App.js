@@ -11,12 +11,21 @@ function App() {
       return [...prevNote, newNote]
     })
   }
+
+  const deleteNoteHandler = (id) => {
+    setAddNode(prevNote => {
+      return prevNote.filter((noteItem, index) => {
+        return index !== id
+      })
+    })
+  }
+
   return (
     <>
       <Header />
       <Home onAdd={addNoteHandler} />
      {addNote.map((note, index) => {
-        return <MakeNotes key={index} title={note.title} content={note.content}  />
+        return <MakeNotes key={index} id={index} title={note.title} content={note.content} onDelete={deleteNoteHandler} />
       })}
     </>
   );
